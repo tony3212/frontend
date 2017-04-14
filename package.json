@@ -1,0 +1,23 @@
+{
+  "name": "frontend_i",
+  "version": "0.0.1",
+  "description": "basic js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tony3212/frontend.git"
+  },
+  "keywords": [
+    "javascript",
+    "basic"
+  ],
+  "author": "tony zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tony3212/frontend/issues"
+  },
+  "homepage": "https://github.com/tony3212/frontend#readme"
+}
