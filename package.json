@@ -4,7 +4,7 @@
   "description": "basic js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "grunt install"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/tony3212/frontend/issues"
   },
-  "homepage": "https://github.com/tony3212/frontend#readme"
+  "homepage": "https://github.com/tony3212/frontend#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "jquery": "^3.2.1",
+    "underscore": "^1.8.3"
+  }
 }
