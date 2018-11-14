@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动滚动到底部</title>
+    <style type="text/css">
+        :root {
+            font-size: 16px;
+        }
+
+        body {
+            margin: 1em;
+        }
+
+        body * + * {
+            margin-top: 1em;
+        }
+
+        li + li {
+            margin-top: 0.2em;
+        }
+
+        button + button {
+            margin-top: auto;;
+        }
+
+        pre {
+            margin: .2em 0;
+        }
+
+        button {
+            background: black;
+            color: white;
+            border-radius: .2em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            font-size: 1.2em;
+        }
+
+        .message {
+            background: #9CDCFE;
+            border: 1px solid #4fc08d;
+            border-radius: .5em;
+            overflow: auto;
+        }
+
+        .message__head {
+            padding: .2em .5em;
+            background: #ccccff;
+            line-height: 1.2em;
+        }
+
+        .message__body {
+            min-height: 3em;
+            max-height: 20em;
+            overflow: auto;
+
+            margin-top: 0;
+        }
+
+    </style>
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../node_modules/underscore/underscore.js"></script>
+    <script src="autoScroll.js"></script>
+    <script src="test.js"></script>
+</head>
+<body>
+<input id="test" type="text"/>
+
+<div class="message">
+    <div class="message__head">
+        <button onclick="clearLog()">清空</button>
+        <button onclick="scrollToBottom()">跳到底端</button>
+    </div>
+    <ul id="message-body" class="message__body"></ul>
+</div>
+</body>
+</html>
