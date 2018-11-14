@@ -68,63 +68,11 @@ function clearLog () {
     console.clear();
 }
 
-function scrollToBottom() {
-    var element = $("#message-body")[0];
-
-    element.scrollTop = element.scrollHeight;
-}
-
-$.fn.dbKeyDown = function (callback, wait) {
-    wait || (wait = 500);
-
-    function getPreviousInfo(element) {
-        var prevKD = $(element).data("prevKD"), prevArray;
-
-        if (!prevKD) {
-            return null;
-        }
-        prevArray = prevKD.split(" ");
-        return {time: +prevArray[0], which: +prevArray[1]};
-    }
-
-    function setPreviousInfo(element, time, which) {
-        $(element).data("prevKD", [time, which].join(" "));
-    }
-
-    $(this).on("keydown.dbkeyDown", function (event) {
-        var $ele = $(this), now = new Date().getTime(), which = event.which,
-            prevKD, prevTime, prevWhich;
-
-        prevKD = getPreviousInfo($ele);
-        if (!prevKD) {
-            setPreviousInfo($ele, now, which);
-            return;
-        }
-
-        prevTime = prevKD["time"];
-        prevWhich = prevKD["which"];
-        Logger.trace("now - prev: " + (now - prevTime));
-        if (now - prevTime <= wait && which === prevWhich) {
-            try {
-                callback.apply(null, [event]);
-            } catch (e) {
-                console.error(e);
-            }
-        }
-        setPreviousInfo($ele, now, which);
-    });
-
-    return this;
-}
-
 
 $(function () {
     $("#test")
         .dbKeyDown(function (event) {
             Logger.warn("双按：" + event.which);
-        })
-        .on("keydown", function (event) {
-            Logger.info("键值：" + event.which);
         });
 
     autoScroll($("#message-body")[0]);
